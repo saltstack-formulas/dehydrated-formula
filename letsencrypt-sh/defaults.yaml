@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+letsencrypt_sh:
+  pkg: 'letsencrypt.sh'
+  pkg_apache: 'letsencrypt.sh-apache2'
+  config_file: '/etc/letsencrypt.sh/conf.d/defaults.sh'
+  basedir: '/var/lib/letsencrypt.sh'
+  domains_txt: '/var/lib/letsencrypt.sh/domains.txt'
+  cron_command: 'letsencrypt.sh --cron >/var/log/letsencrypt.sh.log 2>&1; res=$?; [ $res -eq 0 ] || cat /var/log/letsencrypt.sh.log; exit $res'
+  cron_minute: random
+  cron_hour: random
+  cron_dayweek: random
+  cron_enabled: True

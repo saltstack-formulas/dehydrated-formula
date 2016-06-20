@@ -1,0 +1,22 @@
+letsencrypt-sh:
+  # Recommended parameters
+  # List of domains that need a TLS certificate
+  domains:
+    - example.com www.example.com
+    - example.net
+  # Parameters of configuration file
+  config:
+    # Email contact to register to letsencrypt.org
+    contact-email: admin@example.com
+    # Optional parameters
+    renew-days: 30
+    keysize: 4096
+    ca: https://acme-v01.api.letsencrypt.org/directory
+    openssl-cnf: /usr/lib/ssl/openssl.cnf
+    # see letsencrypt-sh/files/config.sh for more
+  # Override formula parameters
+  lookup:
+    pkg: letsencrypt.sh
+    pkg_apache: letsencrypt.sh-apache2
+    cron_command: cronic letsencrypt.sh --cron
+    # see defaults.yaml for full list
