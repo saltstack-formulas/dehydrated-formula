@@ -3,7 +3,7 @@
 letsencrypt_sh:
   pkg: 'letsencrypt.sh'
   pkg_apache: 'letsencrypt.sh-apache2'
-  config_file: '/etc/letsencrypt.sh/conf.d/defaults.sh'
+  config_file: '/etc/letsencrypt.sh/config.sh'
   basedir: '/var/lib/letsencrypt.sh'
   domains_txt: '/var/lib/letsencrypt.sh/domains.txt'
   cron_command: 'letsencrypt.sh --cron >/var/log/letsencrypt.sh.log 2>&1; res=$?; [ $res -eq 0 ] || cat /var/log/letsencrypt.sh.log; exit $res'

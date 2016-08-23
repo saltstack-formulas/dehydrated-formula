@@ -9,7 +9,10 @@ Setup variable using grains['os_family'] based logic, only add key:values here
 that differ from whats in defaults.yaml
 ##}
 {% set os_family_map = salt['grains.filter_by']({
-        'Debian': {},
+        'Debian': {
+		'domains_txt': '/etc/letsencrypt.sh/domains.txt',
+		'config_file': '/etc/letsencrypt.sh/conf.d/defaults.sh',
+	},
         'Suse': {},
         'Arch': {},
         'RedHat': {},
