@@ -19,6 +19,12 @@
 ########################################################
 # This is the main config file for letsencrypt.sh      #
 #                                                      #
+# This file is looked for in the following locations:  #
+# $SCRIPTDIR/config (next to this script)              #
+# /usr/local/etc/letsencrypt.sh/config                 #
+# /etc/letsencrypt.sh/config                           #
+# ${PWD}/config (in current working-directory)         #
+#                                                      #
 # Default values of this config are in comments        #
 ########################################################
 
@@ -56,13 +62,7 @@
 
 # Output directory for challenge-tokens to be served by webserver or
 # deployed in HOOK (default: /var/www/letsencrypt)
-{{ get_config('wellknown', '/var/www/letsencrypt.sh') }}
-
-# Location of private account key (default: $BASEDIR/private_key.pem)
-{{ get_config('account-key', '${BASEDIR}/private_key.pem') }}
-
-# Location of private account registration information (default: $BASEDIR/private_key.json)
-{{ get_config('account-key-json', '${BASEDIR}/private_key.json') }}
+{{ get_config('wellknown', '/var/www/letsencrypt') }}
 
 # Default keysize for private keys (default: 4096)
 {{ get_config('keysize', '4096') }}
@@ -88,8 +88,8 @@
 # Minimum days before expiration to automatically renew certificate (default: 30)
 {{ get_config('renew-days', '30') }}
 
-# Regenerate private keys instead of just signing new certificates on renewal (default: no)
-{{ get_config('private-key-renew', 'no') }}
+# Regenerate private keys instead of just signing new certificates on renewal (default: yes)
+{{ get_config('private-key-renew', 'yes') }}
 
 # Which public key algorithm should be used? Supported: rsa, prime256v1 and secp384r1
 {{ get_config('key-algo', 'rsa') }}
