@@ -5,6 +5,9 @@
 	   'domains-txt': letsencrypt_sh.domains_txt,
    })
 -%}
+{%- if use_default_hook -%}
+{%- do cfg_client.setdefault('hook', letsencrypt_sh.hook_script) -%}
+{%- endif -%}
 {%- macro get_config(configname, default_value) -%}
 {%- set varname = configname.replace("-", "_") -%}
 {%- if configname in cfg_client -%}

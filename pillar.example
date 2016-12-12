@@ -19,4 +19,6 @@ letsencrypt-sh:
     pkg: letsencrypt.sh
     pkg_apache: letsencrypt.sh-apache2
     cron_command: cronic letsencrypt.sh --cron
+    # Service to reload after install of new cert
+    hook_service_to_reload: nginx
     # see defaults.yaml for full list

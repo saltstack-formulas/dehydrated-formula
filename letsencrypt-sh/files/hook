@@ -1,0 +1,15 @@
+#!/bin/sh
+# File managed by Salt (salt://letsencrypt-sh/files/hook). Do not edit by
+# hand!
+
+{% from "letsencrypt-sh/map.jinja" import letsencrypt_sh with context %}
+{% if letsencrypt_sh.hook_service_to_reload %}
+if [ "$1" = "deploy_cert" ]; then
+    service {{ letsencrypt_sh.hook_service_to_reload }} reload
+fi
+{% else %}
+# Empty file because pillar letsencrypt-sh:lookup:hook_service_to_reload
+# was not set for this minion. Alternatively you can set
+# letsencrypt-sh:lookup:hook_script_src to point to another source
+# file.
+{% endif %}

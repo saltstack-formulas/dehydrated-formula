@@ -1,6 +1,10 @@
 letsencrypt-sh formula
 ======================
 
+0.3.1 (UNRELEASED)
+
+- Add support for hook script reloading a service.
+
 0.3.0 (2016-12-12)
 
 - Updated for version 0.3.0 of the client.

@@ -11,3 +11,6 @@ letsencrypt_sh:
   cron_hour: random
   cron_dayweek: random
   cron_enabled: True
+  hook_script: '/etc/letsencrypt.sh/hook'
+  hook_script_src: 'salt://letsencrypt-sh/files/hook'
+  hook_service_to_reload: ''
