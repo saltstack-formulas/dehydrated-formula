@@ -1,6 +1,11 @@
 letsencrypt-sh formula
 ======================
 
+0.3.0 (2016-12-12)
+
+- Updated for version 0.3.0 of the client.
+- Use /etc/letsencrypt.sh/config instead of config.sh.
+
 0.2.0 (2016-08-23)
 
 - Updated for version 0.2.0 of the client. Forces BASEDIR and DOMAINS_TXT

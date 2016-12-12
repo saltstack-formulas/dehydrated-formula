@@ -6,7 +6,7 @@
 letsencrypth-sh-config:
   file.managed:
     - name: {{ letsencrypt_sh.config_file }}
-    - source: salt://letsencrypt-sh/files/config.sh
+    - source: salt://letsencrypt-sh/files/config
     - mode: 644
     - user: root
     - group: root
