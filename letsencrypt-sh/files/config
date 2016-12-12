@@ -14,7 +14,7 @@
 {%- endif -%}
 {%- endmacro -%}
 # This file is managed by Salt, do not edit by hand!
-# Based on letsencrypt.sh version 0.2.0 default config
+# Based on letsencrypt.sh version 0.3.0 default config
 
 ########################################################
 # This is the main config file for letsencrypt.sh      #
