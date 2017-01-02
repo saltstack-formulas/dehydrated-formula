@@ -5,7 +5,7 @@
 {% from "letsencrypt-sh/map.jinja" import letsencrypt_sh with context %}
 {% if letsencrypt_sh.hook_service_to_reload %}
 if [ "$1" = "deploy_cert" ]; then
-    export PATH="/sbin:/bin:/usr/sbin:/sbin"
+    export PATH="/sbin:/bin:/usr/sbin:/usr/bin"
     service {{ letsencrypt_sh.hook_service_to_reload }} reload
 fi
 {% else %}
