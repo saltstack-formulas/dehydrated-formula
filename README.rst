@@ -1,9 +1,9 @@
-======================
-letsencrypt-sh-formula
-======================
+==================
+dehydrated-formula
+==================
 
 This formula allows you to use the
-`letsencrypt.sh <https://github.com/lukas2511/letsencrypt.sh>` client
+`dehydrated <https://github.com/lukas2511/dehydrated>` ACME client
 to automatically manage TLS certificates issued by the
 `letsencrypt.org <https://letsencrypt.org>` service.
 
@@ -13,36 +13,36 @@ Available states
 .. contents::
     :local:
 
-``letsencrypt-sh``
-------------------
+``dehydrated``
+--------------
 
-Installs the letsencrypt.sh client, its configuration file, the apache
+Installs the dehydrated client, its configuration file, the apache
 integration and the cron job.
 
-``letsencrypt-sh.install``
---------------------------
+``dehydrated.install``
+----------------------
 
-Installs the letsencrypt.sh client.
+Installs the dehydrated client.
 
-``letsencrypt-sh.config``
--------------------------
+``dehydrated.config``
+---------------------
 
-Installs the letsencrypt.sh configuration file. Can also install a hook
-script in /etc/letsencrypt.sh/hook (overridable with
-pillar ``letsencrypt-sh:lookup:hook_script``) whose content is taken from
+Installs the dehydrated configuration file. Can also install a hook
+script in /etc/dehydrated/hook (overridable with
+pillar ``dehydrated:lookup:hook_script``) whose content is taken from
 the source file defined at pillar
-``letsencrypt-sh:lookup:hook_script_src`` (which defaults to a script
+``dehydrated:lookup:hook_script_src`` (which defaults to a script
 reloading the service whose name is set in pillar
-``letsencrypt-sh:lookup:hook_service_to_reload``).
+``dehydrated:lookup:hook_service_to_reload``).
 
-``letsencrypt-sh.apache``
--------------------------
+``dehydrated.apache``
+---------------------
 
-Installs the Apache integration allowing letsencrypt.sh to validate HTTP
+Installs the Apache integration allowing dehydrated to validate HTTP
 challenges required by letsencrypt.org to issue/renew TLS certificates.
 
-``letsencrypt-sh.cron``
------------------------
+``dehydrated.cron``
+-------------------
 
 Enables a periodic task that renews managed TLS certificates that are
 about to expire.

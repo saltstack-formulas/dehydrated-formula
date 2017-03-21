@@ -1,0 +1,5 @@
+{%- from "dehydrated/map.jinja" import dehydrated with context -%}
+# This file is managed by Salt, do not edit by hand!
+{% for domain in dehydrated.domains -%}
+{{ domain }}
+{% endfor -%}

@@ -1,5 +1,10 @@
-letsencrypt-sh formula
-======================
+dehydrated formula
+==================
+
+0.3.2
+
+- Rename everything from letsencrypt.sh to dehydrated.
+- Test with version 0.3.1 of the software.
 
 0.3.1 (2016-12-13)
 

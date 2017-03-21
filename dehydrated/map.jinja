@@ -2,7 +2,7 @@
 # vim: ft=jinja
 
 {## Start with defaults from defaults.sls ##}
-{% import_yaml 'letsencrypt-sh/defaults.yaml' as default_settings %}
+{% import_yaml 'dehydrated/defaults.yaml' as default_settings %}
 
 {##
 Setup variable using grains['os_family'] based logic, only add key:values here
@@ -10,23 +10,23 @@ that differ from whats in defaults.yaml
 ##}
 {% set os_family_map = salt['grains.filter_by']({
         'Debian': {
-		'domains_txt': '/etc/letsencrypt.sh/domains.txt',
-		'config_file': '/etc/letsencrypt.sh/conf.d/defaults.sh',
+		'domains_txt': '/etc/dehydrated/domains.txt',
+		'config_file': '/etc/dehydrated/conf.d/defaults.sh',
 	},
         'Suse': {},
         'Arch': {},
         'RedHat': {},
   }
   , grain="os_family"
-  , merge=salt['pillar.get']('letsencrypt-sh:lookup'))
+  , merge=salt['pillar.get']('dehydrated:lookup'))
 %}
 {## Merge the os_family_map to the default settings ##}
-{% do default_settings.letsencrypt_sh.update(os_family_map) %}
+{% do default_settings.dehydrated.update(os_family_map) %}
 
-{## Merge in letsencrypt-sh pillar ##}
-{% set letsencrypt_sh = salt['pillar.get'](
-        'letsencrypt-sh',
-        default=default_settings.letsencrypt_sh,
+{## Merge in dehydrated pillar ##}
+{% set dehydrated = salt['pillar.get'](
+        'dehydrated',
+        default=default_settings.dehydrated,
         merge=True
     )
 %}

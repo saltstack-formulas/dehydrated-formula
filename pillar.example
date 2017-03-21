@@ -1,4 +1,4 @@
-letsencrypt-sh:
+dehydrated:
   # Recommended parameters
   # List of domains that need a TLS certificate
   domains:
@@ -16,9 +16,9 @@ letsencrypt-sh:
     # see letsencrypt-sh/files/config.sh for more
   # Override formula parameters
   lookup:
-    pkg: letsencrypt.sh
-    pkg_apache: letsencrypt.sh-apache2
-    cron_command: cronic letsencrypt.sh --cron
+    pkg: dehydrated
+    pkg_apache: dehydrated-apache2
+    cron_command: cronic dehydrated --cron
     # Service to reload after install of new cert
     hook_service_to_reload: nginx
     # see defaults.yaml for full list

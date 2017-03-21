@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+dehydrated:
+  pkg: 'dehydrated'
+  pkg_apache: 'dehydrated-apache2'
+  config_file: '/etc/dehydrated/config'
+  basedir: '/var/lib/dehydrated'
+  domains_txt: '/var/lib/dehydrated/domains.txt'
+  cron_command: 'dehydrated --cron >/var/log/dehydrated.log 2>&1; res=$?; [ $res -eq 0 ] || cat /var/log/dehydrated.log; exit $res'
+  cron_minute: random
+  cron_hour: random
+  cron_dayweek: random
+  cron_enabled: True
+  hook_script: '/etc/dehydrated/hook'
+  hook_script_src: 'salt://dehydrated/files/hook'
+  hook_service_to_reload: ''

@@ -1,5 +1,0 @@
-{%- from "letsencrypt-sh/map.jinja" import letsencrypt_sh with context -%}
-# This file is managed by Salt, do not edit by hand!
-{% for domain in letsencrypt_sh.domains -%}
-{{ domain }}
-{% endfor -%}

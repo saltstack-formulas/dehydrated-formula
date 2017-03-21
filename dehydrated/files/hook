@@ -1,0 +1,16 @@
+#!/bin/sh
+# File managed by Salt (salt://dehydrated/files/hook). Do not edit by
+# hand!
+
+{% from "dehydrated/map.jinja" import dehydrated with context %}
+{% if dehydrated.hook_service_to_reload %}
+if [ "$1" = "deploy_cert" ]; then
+    export PATH="/sbin:/bin:/usr/sbin:/usr/bin"
+    service {{ dehydrated.hook_service_to_reload }} reload
+fi
+{% else %}
+# Empty file because pillar dehydrated:lookup:hook_service_to_reload
+# was not set for this minion. Alternatively you can set
+# dehydrated:lookup:hook_script_src to point to another source
+# file.
+{% endif %}
