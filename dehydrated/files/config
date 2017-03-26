@@ -6,15 +6,21 @@
    })
 -%}
 {%- if use_default_hook -%}
-{%- do cfg_client.setdefault('hook', dehydrated.hook_script) -%}
+  {%- do cfg_client.setdefault('hook', dehydrated.hook_script) -%}
 {%- endif -%}
+
+{#- Some defaults are platform-specific -#}
+{%- set wellknown_default =
+    '/var/www/letsencrypt' if grains.os_family != 'FreeBSD' else
+    '/usr/local/www/dehydrated' -%}
+
 {%- macro get_config(configname, default_value) -%}
-{%- set varname = configname.replace("-", "_") -%}
-{%- if configname in cfg_client -%}
+  {%- set varname = configname.replace("-", "_") -%}
+  {%- if configname in cfg_client -%}
 {{ varname|upper }}="{{ cfg_client[configname] }}"
-{%- else -%}
+  {%- else -%}
 #{{ varname|upper }}="{{ default_value }}"
-{%- endif -%}
+  {%- endif -%}
 {%- endmacro -%}
 # This file is managed by Salt, do not edit by hand!
 # Based on dehydrated version 0.3.0 default config
@@ -64,8 +70,8 @@
 {{ get_config('accountdir', '${BASEDIR}/accounts') }}
 
 # Output directory for challenge-tokens to be served by webserver or
-# deployed in HOOK (default: /var/www/letsencrypt)
-{{ get_config('wellknown', '/var/www/letsencrypt') }}
+# deployed in HOOK (default: {{ wellknown_default }})
+{{ get_config('wellknown', wellknown_default) }}
 
 # Default keysize for private keys (default: 4096)
 {{ get_config('keysize', '4096') }}
