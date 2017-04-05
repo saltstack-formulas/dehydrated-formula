@@ -5,7 +5,7 @@
 {% from "dehydrated/map.jinja" import dehydrated with context %}
 {% if dehydrated.hook_service_to_reload %}
 if [ "$1" = "deploy_cert" ]; then
-    export PATH="/sbin:/bin:/usr/sbin:/usr/bin"
+    export PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
     service {{ dehydrated.hook_service_to_reload }} reload
 fi
 {% else %}
