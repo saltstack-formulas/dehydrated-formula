@@ -13,4 +13,5 @@ dehydrated:
   cron_enabled: True
   hook_script: '/etc/dehydrated/hook'
   hook_script_src: 'salt://dehydrated/files/hook'
+  hook_script_mode: 755
   hook_service_to_reload: ''

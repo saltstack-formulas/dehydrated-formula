@@ -24,7 +24,7 @@ dehydrated-hook:
   file.managed:
     - name: {{ dehydrated.hook_script }}
     - source: {{ dehydrated.hook_script_src }}
-    - mode: 755
+    - mode: {{ dehydrated.hook_script_mode }}
     - user: root
     - group: root
     - template: jinja
