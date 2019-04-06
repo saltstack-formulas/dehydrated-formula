@@ -13,8 +13,8 @@ dehydrated-config:
     - name: {{ dehydrated.config_file }}
     - source: salt://dehydrated/files/config
     - mode: 644
-    - user: root
-    - group: root
+    - user: {{ dehydrated.user }}
+    - group: {{ dehydrated.group }}
     - template: jinja
     - context:
         use_default_hook: {{ install_hook }}
@@ -25,8 +25,8 @@ dehydrated-hook:
     - name: {{ dehydrated.hook_script }}
     - source: {{ dehydrated.hook_script_src }}
     - mode: {{ dehydrated.hook_script_mode }}
-    - user: root
-    - group: root
+    - user: {{ dehydrated.user }}
+    - group: {{ dehydrated.group }}
     - template: jinja
 {% endif %}
 
@@ -35,6 +35,6 @@ dehydrated-domains:
     - name: {{ dehydrated.domains_txt }}
     - source: salt://dehydrated/files/domains.txt
     - mode: 644
-    - user: root
-    - group: root
+    - user: {{ dehydrated.user }}
+    - group: {{ dehydrated.group }}
     - template: jinja

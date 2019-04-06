@@ -15,3 +15,6 @@ dehydrated:
   hook_script_src: 'salt://dehydrated/files/hook'
   hook_script_mode: 755
   hook_service_to_reload: ''
+  # if user is changed, the old cronjob (if present) will not get removed
+  user: root
+  group: root

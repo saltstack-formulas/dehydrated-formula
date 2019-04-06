@@ -6,3 +6,15 @@
 dehydrated-pkg:
   pkg.installed:
     - name: {{ dehydrated.pkg }}
+
+dehydrated-group:
+  group.present:
+    - name: {{ dehydrated.group }}
+    - system: True
+
+dehydrated-user:
+  user.present:
+    - name: {{ dehydrated.user }}
+    - gid: {{ dehydrated.group }}
+    - createhome: False
+    - system: True
