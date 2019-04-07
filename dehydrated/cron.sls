@@ -7,7 +7,7 @@
 dehydrated-cron:
   cron.present:
     - name: {{ dehydrated.cron_command }}
-    - user: root
+    - user: {{ dehydrated.user }}
     - identifier: dehydrated-cron
     - minute: {{ dehydrated.cron_minute }}
     - hour: {{ dehydrated.cron_hour }}
@@ -16,6 +16,6 @@ dehydrated-cron:
 {% else %}
 disable-dehydrated-cron:
   cron.absent:
-    - user: root
+    - user: {{ dehydrated.user }}
     - identifier: dehydrated-cron
 {% endif %}

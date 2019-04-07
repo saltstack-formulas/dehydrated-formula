@@ -21,4 +21,8 @@ dehydrated:
     cron_command: cronic dehydrated --cron
     # Service to reload after install of new cert
     hook_service_to_reload: nginx
+    # choose a user and group to run under (default: root/root)
+    # user and/or group will be created (as system) if it does not exist
+    user: root
+    group: root
     # see defaults.yaml for full list
