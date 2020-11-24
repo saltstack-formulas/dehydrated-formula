@@ -3,6 +3,8 @@
 {% do cfg_client.update({
 	   'basedir': dehydrated.basedir,
 	   'domains-txt': dehydrated.domains_txt,
+	   'dehydrated_user': dehydrated.lookup.user,
+	   'dehydrated_group': dehydrated.lookup.group,
    })
 -%}
 {%- if use_default_hook -%}
@@ -30,6 +32,12 @@
 #                                                      #
 # Default values of this config are in comments        #
 ########################################################
+
+# Which user should dehydrated run as? This will be implictly enforced when running as root
+{{ get_config('dehydrated_user', '') }}
+
+# Which group should dehydrated run as? This will be implictly enforced when running as root
+{{ get_config('dehydrated_group', '') }}
 
 # Resolve names to addresses of IP version only. (curl)
 # supported values: 4, 6
