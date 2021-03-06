@@ -13,7 +13,7 @@ dehydrated:
     keysize: 4096
     ca: https://acme-v01.api.letsencrypt.org/directory
     openssl-cnf: /usr/lib/ssl/openssl.cnf
-    # see letsencrypt-sh/files/config.sh for more
+    # see dehydrated/files/config.sh for more
   # Override formula parameters
   lookup:
     pkg: dehydrated
