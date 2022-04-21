@@ -15,7 +15,12 @@ that differ from whats in defaults.yaml
 	},
         'Suse': {},
         'Arch': {},
-        'RedHat': {},
+        'RedHat': {
+		'basedir': '/etc/dehydrated',
+		'domains_txt': '/etc/dehydrated/domains.txt',
+		'config_file': '/etc/dehydrated/conf.d/local.sh',
+		'hook_script': '/etc/dehydrated/hook.sh',
+        },
   }
   , grain="os_family"
   , merge=salt['pillar.get']('dehydrated:lookup'))
