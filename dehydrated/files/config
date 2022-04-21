@@ -3,8 +3,8 @@
 {% do cfg_client.update({
 	   'basedir': dehydrated.basedir,
 	   'domains-txt': dehydrated.domains_txt,
-	   'dehydrated_user': dehydrated.lookup.user,
-	   'dehydrated_group': dehydrated.lookup.group,
+	   'dehydrated_user': dehydrated.user,
+	   'dehydrated_group': dehydrated.group,
    })
 -%}
 {%- if use_default_hook -%}
